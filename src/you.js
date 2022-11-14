@@ -1,7 +1,9 @@
 const express = require('express');
 const axios = require('axios');
 const app = express();
-const apikey = "AIzaSyBgsU7vIFXV-oiUtTXnCvzDWxG7eQWBEZs";
+//get api key from .env file
+let ap = require('dotenv').config();
+const API_KEY = ap.parsed.API_KEY;
 const base_url = "https://www.googleapis.com/youtube/v3";
 const port = 3001;
 
