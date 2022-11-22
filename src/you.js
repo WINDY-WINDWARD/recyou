@@ -3,7 +3,7 @@ const axios = require('axios');
 const app = express();
 //get api key from .env file
 let ap = require('dotenv').config();
-const API_KEY = ap.parsed.API_KEY;
+const APIKEY = ap.parsed.API_KEY;
 const base_url = "https://www.googleapis.com/youtube/v3";
 const port = 3001;
 
@@ -35,7 +35,7 @@ app.get('/updateDB', async (req, res) => {
     try{
     const randomSentence = await axios.get('https://random-word-api.herokuapp.com/word?number=1');
     // get random video from youtube api
-    const randomVideo = await axios.get(`${base_url}/search?part=snippet&maxResults=1&q=${randomSentence.data[0]}&type=video&key=${apikey}`);
+    const randomVideo = await axios.get(`${base_url}/search?part=snippet&maxResults=1&q=${randomSentence.data[0]}&type=video&key=${APIKEY}`);
 
     const random_number = Math.floor(Math.random() * randomVideo.data.items.length);
     const video_id = randomVideo.data.items[random_number].id.videoId;
